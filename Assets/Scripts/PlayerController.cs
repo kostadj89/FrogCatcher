@@ -38,8 +38,11 @@ public class PlayerController : MonoBehaviour
         //move character in the right direction by applying force
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
-
+        Vector2 vector = new Vector2(horizontal, vertical);
+        
         gameObject.transform.Translate(playerMoveSpeed*Time.deltaTime*(horizontal * Vector2.right + vertical*Vector2.up));
         //playerRigidbody try to add force
+        //playerRigidbody.AddForce(vector*playerMoveSpeed);
+        //playerRigidbody.AddRelativeForce(vector*playerMoveSpeed);
     }
 }
