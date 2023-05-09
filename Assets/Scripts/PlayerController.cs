@@ -17,8 +17,9 @@ public class PlayerController : MonoBehaviour
     //}
     private float horizontal, vertical;
     private Rigidbody2D playerRigidbody;
+    public Animator animator;
 
-    public float playerMoveSpeed = 20f;
+    public float playerMoveSpeed;
 
     void Awake()
     {
@@ -44,5 +45,10 @@ public class PlayerController : MonoBehaviour
         //playerRigidbody try to add force
         //playerRigidbody.AddForce(vector*playerMoveSpeed);
         //playerRigidbody.AddRelativeForce(vector*playerMoveSpeed);
+
+
+        animator.SetFloat("Horizontal", horizontal);
+        animator.SetFloat("Vertical", vertical);
+        animator.SetFloat("Speed", new Vector2(horizontal,vertical).magnitude);
     }
 }
